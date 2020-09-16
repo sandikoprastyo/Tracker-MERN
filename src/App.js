@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/Navbar";
+import Exercise_List from "./components/exercisesList";
+import Edit_Exercise_List from "./components/editExercises";
+import Create_Exercise from "./components/createExercise";
+import Create_User from "./components/createUser";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <br />
+      <div className="container">
+        <Route path="/" exact component={Exercise_List} />
+        <Route path="/edit/:id" component={Edit_Exercise_List} />
+        <Route path="/create" component={Create_Exercise} />
+        <Route path="/user" component={Create_User} />
+      </div>
+    </Router>
   );
 }
 
