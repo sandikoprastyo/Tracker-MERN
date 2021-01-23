@@ -1,0 +1,1 @@
+//!exerciseList function untuk render komponent
